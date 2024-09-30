@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactez Regideso</title>
-    <?php include "./Connexion.php" ?>
-    <?php include "Menu1.php" ?>
+    <?php include "Connexion.php" ?>
+    <?php include "Header.php" ?>
 </head>
 <body>
     <section id="comment-form">
@@ -64,9 +64,10 @@
                 $insertCont = "insert into Contactez_nous(nom,prenom,adresse,telephone,objet,message) values('$recupNom','$recupPrenom','$recupAdd','$recupTel','$recupObj','$recupMsg')";
 
                 $bdd->exec($insertCont); 
+                header("location:affichage_contactez.php");
 
             }
         ?>
-    </div>
+    </section>
 </body>
 </html>

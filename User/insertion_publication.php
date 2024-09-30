@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creation d'un compte Regideso</title>
+    <title>Creation des publications</title>
     <?php include "Connexion.php" ?>
-    <?php include "Menu1.php" ?>
+    <?php include "Header.php" ?>
 </head>
 <body>
     <br><br>
@@ -37,6 +37,7 @@
                 $insertPub = "insert into Publication (objectif,publicite) values('$recupObjectif','$recupmsg')";
 
                 $bdd->exec($insertPub); 
+                header("location:affichage_publication.php");
 
             }
         ?>

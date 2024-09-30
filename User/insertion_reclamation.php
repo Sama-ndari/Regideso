@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reclamation Regideso</title>
     <?php include "Connexion.php" ?>
-    <?php include "Menu1.php" ?>
+    <?php include "Header.php" ?>
 </head>
 <body>
-    
-    <div class="reclamer">
+    <br><br>
+    <section id="comment-form">
         <h1> Reclamer </h1>
         <form action="" method="post">
             <div class="form-control">
                 <label for="facture">
                     Numero de Facture 
                     <input type="number" name="facture" id="facture">
-                </label><br><br>
+                </label>
             </div>
 
             <div class="form-control">
@@ -38,9 +38,10 @@
                 $insertRecl = "insert into Reclamation(num_fact,description) values('$recupFact','$recupDescr')";
 
                 $bdd->exec($insertRecl); 
+                header("location:affichage_reclamation.php");
 
             }
         ?>
-    </div>
+    </section>
 </body>
 </html>
