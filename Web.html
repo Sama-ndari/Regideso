@@ -1,0 +1,391 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>StarK</title>
+	</head>
+
+	<body>
+
+		<a href="#Partie2" title="saut">Ancre vers Partie 2</a>
+		<a href="#Text Ordonnee" title="nisawa">Ancre vers Texte Ordonnee</a>
+		<h1>Titre super important</h1>
+		<h2>Titre important</h2>
+		<h3>Titre un peu moins important (sous-titre)</h3>
+		<h4>Titre pas trop important</h4>
+		<h5>Titre pas important</h5>
+		<h6>Titre vraiment pas important du tout</h6>
+
+
+		<p>
+			paragraphe <em>numero 1 en italique</em><br/>
+			on continue paragraphe au saut de ligne
+		</p>
+		<p>
+			un autre paragraphe <strong>numero 2 en mode important</strong>
+		</p>
+		<p>
+			<mark>texte surligné</mark><br/>
+			<BLINK>texte clignotant</BLINK>
+			<BLOCKQUOTE>citation</BLOCKQUOTE>
+			<CENTER>texte au centre</CENTER> <br/><br/><br/><br/>
+		</p>
+		<p>
+			paragraphe <i>numero 2 en italique</i><br/>
+			<del>on continue paragraphe au saut de ligne</del>
+		</p>
+		<p>
+			<ins>surligne</ins> Texte<sub>dessous</sub>   Texte<sup>dessus</sup>
+		</p>
+		<p>
+			<mark>texte surligné</mark>
+		</p>
+
+
+		<ul>
+			<p>Texte Non ordonnée</p>
+			<li type = "disc" >Element 1</li>
+			<li type = "square">Element 2</li>
+			<li>Element 3</li>
+			<li>Element 4
+				<ul>
+					<li>E1</li>
+					<li>E2</li>
+					<li>E3
+						<ul>
+							<li>e1</li>
+							<li>e2</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li type = "circle">Element 5</li>
+		</ul>
+
+		<ol type ="i" start = "3">
+			<p id="Text Ordonnee">Texte ordonnée</p>
+			<li>Element 1</li>
+			<li>Element 2</li>
+			<li>Element 3</li>
+			<li>Element 4</li>
+			<li>Element 5</li>
+		</ol>
+
+		<ol>
+			<p id="Text Nested">Texte Mixte</p>
+			<li>Hardware
+				<ul type="square">
+					<li>Floppy
+					<li>CD ROM
+					<li>Blue ray
+				</ul>
+			<li>Software
+				<ul type="disc">
+					<li>MS Word
+					<li>Tubro C
+				</ul>
+		</ol>
+
+
+		<dl>
+			<p id="List descriptive">Liste Descriptive</p>
+			<dt>HTTP</dt>
+				<dd>Hypertext Transfer Protocol</dd>
+			<dt>URL</dt>
+				<dd>Uniform Resource Locator</dd>
+			<dt>WWW</dt>
+				<dd>World Wide Web</dd>
+		</dl>
+
+
+
+		<p>Aller sur un autre siteWeb: <a href="http://www.siteduzero.com"title = "baaaaaaaaaah">Site du Zéro</a> ?<br /> hhaaahahahhah</p>
+		<p>un autre siteWeb: <a href="file:///C:/Users/aurel/Desktop/SCHOOL%20Programs/HTML%20et%20CSS/Workspace/test.html" target = "_blank">Site de StarK</a></p>
+		<p><a href="mailto:Junior_julescesar10@hotmail.com">Envoyez-moi un e-mail!</a></p>
+		<p><a href="C:\Users\aurel\Desktop\MOVIES\j.jpg">Télécharger le fichier</a></p>
+
+
+		<h1>Les Ancres</h1>
+			<p>
+				Aller directement à la partie traitant de :<br />
+				<a href="#cuisine">La cuisine</a><br />
+				<a href="#rollers">Les rollers</a><br />
+				<a href="#arc">Le tir à l'arc</a><br />
+			</p>
+			<h2 id="cuisine">La cuisine</h2>
+			<p>... (beaucoup de texte) ...</p>
+			<h2 id="rollers">Les rollers</h2>
+			<p>... (beaucoup de texte) ...</p>
+			<h2 id="arc">Le tir à l'arc</h2>
+			<p>... (beaucoup de texte) ...</p>
+
+
+
+
+
+
+
+		<figure>
+			<img src="/images/ji.jpg" alt="BabaYegga"  width="500" height="600"/>
+			<figcaption>La Caption si l'image apporte des informations</figcaption>
+		</figure>
+
+		<p>Voici un photo de moi
+			<img src="/images/ji.jpg" alt="A Man" title = "BullShit" width="500" height="600"/>
+		</p>
+
+		<p><img src="/images/ji.jpg" class="imageflottante" alt="Image flottante" width="500" height="600"/>
+			Ceci est un texte normal de paragraphe, écrit à la suite de l'image et qui l'habillera car l'image est flottante.<br/>
+			Ceci est un texte normal de paragraphe, écrit à la suite de l'image et qui l'habillera car l'image est flottante.
+		</p>
+		<p class="dessous">Ce texte est écrit sous l'image flottante.</p>
+
+		<p>Ceci est un paragraphe avant le tableau simple.</p>
+		<table>
+			<caption>Passagers du vol 377</caption>
+			<tr>
+				<th>Nom</th>
+				<th>Âge</th>
+				<th>Pays</th>
+			</tr>
+			<tr>
+				<td>Milka</td>
+				<td>18 ans</td>
+				<td>Mutanga</td>
+			</tr>
+			<tr>
+				<td>Michelle</td>
+				<td>20 ans</td>
+				<td>Kinanira</td>
+			</tr>
+		</table>
+
+		<p>Ceci est un paragraphe avant le tableau complexe.</p>
+		<table>
+			<caption>Passagers du vol 377</caption>
+			<thead> <!-- En-tête du tableau -->
+				<tr>
+					<th>Nom</th>
+					<th>Âge</th>
+					<th>Pays</th>
+				</tr>
+			</thead>
+
+			<tfoot> <!-- Pied de tableau -->
+				<tr>
+					<th>Nom</th>
+					<th>Âge</th>
+					<th>Pays</th>
+				</tr>
+			</tfoot>
+
+			<tbody> <!-- Corps du tableau -->
+				<tr>
+					<td>Carmen</td>
+					<td>33 ans</td>
+					<td>Espagne</td>
+				</tr>
+				<tr>
+					<td>Michelle</td>
+					<td>26 ans</td>
+					<td>États-Unis</td>
+				</tr>
+				<tr>
+					<td>François</td>
+					<td>43 ans</td>
+					<td>France</td>
+				</tr>
+				<tr>
+					<td>Martine</td>
+					<td>34 ans</td>
+					<td>France</td>
+				</tr>
+				<tr>
+					<td>Jonathan</td>
+					<td>13 ans</td>
+					<td>Australie</td>
+				</tr>
+				<tr>
+					<td>Xu</td>
+					<td>19 ans</td>
+					<td>Chine</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Ceci est un paragraphe avant le tableau avec fusionnement.</p>
+		<table  border="2" cellpadding="10" cellspacing="7" align="center" bgcolor = "fuchsia">
+			<tr>
+				<th>Titre du film</th>
+				<th>Pour enfants ?</th>
+				<th>Pour adolescents ?</th>
+			</tr>
+			<tr>
+				<td>Massacre à la tronçonneuse</td>
+				<td >Non, trop violent</td>
+				<td rowspan="2">Oui</td>
+			</tr>
+			<tr>
+				<td>Les bisounours font du ski</td>
+				<td>Oui, adapté</td>
+			</tr>
+			<tr>
+				<td>Lucky Luke, seul contre tous</td>
+				<td colspan="2">Pour toute la famille !</td>
+			</tr>
+		</table>
+
+		<p>Formulaire</p>
+		<form name = 'form' method="post" action="traitement.php">
+			<p>
+				<fieldset>
+					<legend>Vos coordonnées</legend> <!-- Titre du fieldset -->
+
+					<label for="pseudo">Votre pseudo</label> :  <input type="text" name="pseudo" id="pseudo" placeholder="Ex: StarK"  autocomplete = "on"/>
+					<!--	size: agrandir // maxlength: limiter l nombre de caracteres a saisir // value: remplir le champ avec une valeur par defaut   -->
+					<br /> <br />
+					<label for="prenom">Votre prenom</label> :  <input type="text" name="prenom" id="prenom" placeholder="Ex: Lacasse" autofocus/>
+					<!--	size: agrandir // maxlength: limiter l nombre de caracteres a saisir // value: remplir le champ avec une valeur par defaut   -->
+					<br /> <br />
+					<label for="custId">Votre ID(hidden data)</label> :  <input type="hidden" id="custId" name="custId" value="3487"/>
+					<br /> <br />
+					<label for="pass">Votre mot de passe :</label> <input type="password" name="pass" id="pass" maxlength="8" minlength="4"/>
+					<br /> <br />
+					<label for="mail">Votre Email</label> :  <input type="email" name="mail" id="mail" placeholder = "Address@example.com" required />
+					<br /> <br />
+					<label for="age">Votre age</label> :  <input type="number" name="age" id="age" value="0" min="-5" max="100" step="2"/>
+					<br /> <br />
+					<label for="range">Votre taille</label> :  <input type="range" name="range" id="range" value="10" min="5" max="200" step="5"/>
+				</fieldset>
+				<fieldset>
+					<legend>Autres Données</legend>
+
+					<label for="birthday">Birthdate:</label><input type="date" id="birthday" min="2000-01-02" max = "2050-01-01">
+					<br /> <br />
+					<label for = "clg_time">Time:</label> <input type="time" name="clg_time" id = "clg_time">
+					<br /> <br />
+					<label for = "birthdaytime">Date and Time:</label> <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+					<br /> <br />
+					<label for ="emonth">Select month for Election:</label><input type="month" name="emonth" id = "emonth">
+					<br /> <br />
+					<label for = "myweek">Select Vacation week:</label><input type="week" name="myweek" id = "myweek">
+					<br /> <br />
+					<label for="favcolor">Select your Favorite Color:</label><input type="color" id="favcolor" name="favcolor">
+					<br /> <br />
+					<label for="phone">Enter your phone number:</label><input type="tel" name="phone" id = "phone" pattern = "[A-Za-z]{3}">
+					<br/> <br />
+					<label for="search">Votre Recherche</label> :  <input type="search" name="search" id="search" autocomplete = "on"/>
+					<br /> <br />
+					<label for="file">Votre Fichier:</label> :  <input type="file" name="file" id="file" multiple/>
+					<br /> <br />
+					<label for="web">Votre Browser:</label> : <input list="browsers" name="web" id = "web">
+																<datalist id="browsers">
+																	<option value="Internet Explorer">
+																	<option value="Firefox">
+																	<option value="Chrome">
+																	<option value="Opera">
+																	<option value="Safari">
+																</datalist>
+				</fieldset>
+				<fieldset>
+					<legend>Vos Preferences</legend>
+
+					<p>
+						Cochez les aliments que vous aimez manger :<br />
+						<input type="checkbox" name="haricots" id="haricots" checked /> <label for="haricots">Haricots</label> <br />
+						<input type="checkbox" name="frites" id="frites" /> <label for="frites">Frites</label> <br />
+						<input type="checkbox" name="steak" id="steak" /> <label for="steak">Steak haché</label> <br />
+						<input type="checkbox" name="epinards" id="epinards" /> <label for="epinards">Epinards</label><br />
+						<input type="checkbox" name="huitres" id="huitres" /> <label for="huitres">Huitres</label>
+					</p>
+					<br /> <br />
+					<p>
+						Veuillez indiquer la tranche d'âge dans laquelle vous vous
+						situez :<br />
+						<input type="radio" name="age" value="moins15" id="moins15" checked/> <label for="moins15">Moins de 15 ans</label><br />
+						<input type="radio" name="age" value="medium15-25" id="medium15-25" /> <label for="medium15-25">15-25 ans</label><br />
+						<input type="radio" name="age" value="medium25-40" id="medium25-40" /> <label for="medium25-40">25-40 ans</label><br />
+						<input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Encore plus vieux que ça ?!</label>
+					</p>
+					<br /> <br />
+					<p>
+						<label for="pays">Dans quel pays habitez-vous ?</label><br />
+						<select name="pays" id="pays">
+							<optgroup label="Afrique">
+								<option value="burundi">Burundi</option>
+								<option value="egypte" selected>Egypte</option>
+							</optgroup>
+							<optgroup label="Europe">
+								<option value="france">France</option>
+								<option value="espagne">Espagne</option>
+								<option value="italie">Italie</option>
+								<option value="royaume-uni">Royaume-Uni</option>
+							</optgroup>
+							<optgroup label="Amérique">
+								<option value="canada">Canada</option>
+								<option value="etats-unis">Etats-Unis</option>
+							</optgroup>
+							<optgroup label="Asie">
+								<option value="chine">Chine</option>
+								<option value="japon">Japon</option>
+							</optgroup>
+						</select>
+					</p>
+				</fieldset>
+				<label for="ameliorer">Comment pensez-vous que je pourrais améliorer mon site ?</label> <br />
+				<textarea name="ameliorer " id="ameliorer"  rows="10" cols="50"  placeholder = ”Enter Comments Here”> blablablibli blublubloblo blebleblybly</textarea>
+				<br /> <br />
+				<input type="submit" value="Envoyer" />
+				<br /> <br />
+
+			</p>
+		</form>
+
+			<audio src="images/Asake.mp3" controls> My Fav Music </audio>
+			<br /> <br />
+			<video src="images/Video.mp4" controls poster="images/jo.jpg" width="250" height="250" loop>not supported</video>
+
+		<p id="Partie2">EXERCICES</p>
+		<h3 style="color:red">StarK Lacasse éàè</h1>
+		<p>Marwadi University<hr> <hr noshade> Rajkot-Morbi Road,Rajkot 360 003<br> Gujarat,India<br> Email:info@marwadiuniversity.ac.in<br> Landline:0281-7123456</p>
+		<h2>Multiple languages example</h2>
+		<h2 lang="fr">Je cherche cette adresse<h2><!--Text is in French-->
+		<h2 lang="es">Por favor, habla más despacio</h2><!--Text is in Spanish-->
+		<h2 lang="it">Ho preso l’autobus per venire qui.</h2>
+		<a href = "HelloWorld.html" target ='_blank' title = 'Hello stuff'>Link vers page HelloWord</a>
+		<a href="https://www.google.com/" target ='_blank'>Google</a><!-- absolute URL:-A full web address in the href attribute-->
+		<a href="vaibhav/one.html" target ='_blank'>HTML Tutorial</a><!-- relative URL:-A local link(a link to a page within the same website).It is specified without https://www part-->
+
+		<p> &lt;  &gt; &#61 </p>
+		<pre style='color:rgba(250,110,152,0.5)'>
+			#include &lt;stdio.h&gt;
+			#include &lt;conio.h&gt;
+			void main() {
+				int a,b,z;
+				clrscr();
+				printf("Enter the value of a");
+				scanf("%d",&a);
+				printf("Enter the value of b");
+				scanf("%d",&b);
+				z=a;
+				a=b;
+				b=z;
+				printf("The value of a is =%d",a);
+				printf("The value of b is =%d",b);
+				getch();
+			}
+		</pre>
+
+		<marquee>Welcome to our page</marquee>
+		<dialog open>The future depends on what you do today.</dialog>
+		<a href="HelloWord.html" target="myframe">gallery</a>
+		<iframe width="400px" height="300px" name="myframe" ></iframe>
+		<br><kbd>keybord input</kbd><br />
+		<code>aaaa</code><br />
+		<kbd>jjjjjjj</kbd><br />
+		<q>quote</q><br />
+		<cite>citt</cite><br />
+		<template>aaaaaaaaaaaa</template>
+		
+
+	</body>
+</html>
