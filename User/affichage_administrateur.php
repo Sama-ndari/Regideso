@@ -12,7 +12,7 @@
 
     <?php include "Header.php" ?>
 </head>
-<body>
+<body> 
     <br><br>
     <div class="container">
     

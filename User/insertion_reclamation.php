@@ -6,7 +6,7 @@
     <title>Reclamation Regideso</title>
     <?php include "Connexion.php" ?>
     <?php include "Header.php" ?>
-</head>
+</head> 
 <body>
     <br><br>
     <section id="comment-form">

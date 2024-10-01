@@ -7,7 +7,7 @@
     <?php 
         include "Connexion.php" ;
         $affichageCompt = $bdd->query("Select * from Compteur");
-        
+         
     ?>
 
     <?php include "Header.php" ?>

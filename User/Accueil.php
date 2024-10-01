@@ -6,7 +6,7 @@
     <title>Accueil Regideso</title>
     <?php include "Header.php" ?>
 </head>
-<body>
+<body> 
     <h1>Accueil</h1>
 </body>
 </html>

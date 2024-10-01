@@ -27,6 +27,5 @@
     <footer class="footer">
         <p>REGIDESO </p>
     </footer>
-    https://github.com/Sama-ndari/Regideso.git
 </body>
 </html>

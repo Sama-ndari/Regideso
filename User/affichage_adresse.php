@@ -11,7 +11,7 @@
     ?>
 
     <?php include "Header.php" ?>
-</head>
+</head> 
 <body>
     <br><br>
     <div class="container">

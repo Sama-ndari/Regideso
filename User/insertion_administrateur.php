@@ -28,7 +28,7 @@
             <button type="submit" name="valider">Envoyer</button>
             
         </form>
-
+ 
         <?php
             if(isset($_POST["valider"])){
                 $recupUsername = $_POST["username"];

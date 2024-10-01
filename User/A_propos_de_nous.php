@@ -53,7 +53,7 @@
             dolor dolore placeat nesciunt, eaque est voluptatibus natus?
         </p>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Lorem  ipsum dolor sit amet consectetur adipisicing elit. 
             Reprehenderit quae cupiditate culpa, accusantium iure 
             blanditiis esse vero quidem nulla sunt voluptas odio, 
             dolor dolore placeat nesciunt, eaque est voluptatibus natus?

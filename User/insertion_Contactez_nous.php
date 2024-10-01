@@ -7,7 +7,7 @@
     <?php include "Connexion.php" ?>
     <?php include "Header.php" ?>
 </head>
-<body>
+<body> 
     <section id="comment-form">
         <h1>Contactez-Nous</h1>
         <form action="" method="POST">
