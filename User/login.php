@@ -11,7 +11,7 @@
     <br><br>
 
     <section id="comment-form">
-        <h1>Creer Compte</h1>
+        <h1>Authentification</h1>
         <form action="" method="POST">
             <div class="form-control">
                 <label for="username">

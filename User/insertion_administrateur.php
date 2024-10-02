@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reclamation Regideso</title>
     <?php include "Connexion.php" ?>
-    <?php include "Header.php" ?>
+    <?php include "Header_admin.php" ?>
 </head>
 <body>
     <br><br>
     <section id="comment-form">
-        <h1> Reclamer </h1>
+        <h1> Ajout d'un utilisateur </h1>
         <form action="" method="POST">
             <div class="form-control">
                 <label for="username">
@@ -20,9 +20,9 @@
             </div>
 
             <div class="form-control">
-                <label for="descr">
+                <label for="pswd">
                     Mot de passe
-                    <input name="pswd" id="pswd" require>
+                    <input type="password" name="pswd" id="pswd">
                 </label><br><br>
             </div>
             <button type="submit" name="valider">Envoyer</button>

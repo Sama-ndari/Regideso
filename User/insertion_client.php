@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactez Regideso</title>
+    <title>Clients</title>
     <?php include "Connexion.php" ?>
     <?php include "Header_admin.php" ?>
 </head>
 <body> 
     <section id="comment-form">
-        <h1>Contactez-Nous</h1>
+        <h1>Inserez Client</h1>
         <form action="" method="POST">
             <div class="form-control">
                 <label for="name">
@@ -25,10 +25,21 @@
             </div>
             <div class="form-control">
                 <label for="adress">
-                    Votre Adresse: 
-                    <input type="text" name="adress" id="adress" require>
+                    Votre Adresse:
+                    <select name="adress" id="adress">
+                        <?php  
+                            $affichageAdress = $bdd->query("Select * from Adresse");
+                            while($dataAdress = $affichageAdress->fetch()){
+
+                        ?>
+                            <option value=" <?php echo $dataAdress["id_adr"]; ?> ">
+                                <?php echo $dataAdress["commune"]." - ".$dataAdress["quartier"]; ?>
+                            </option>
+                        <?php } ?>
+                    </select>
                 </label>
             </div>
+
             <div class="form-control">
                 <label for="tel">
                     Numero de Telephone:
@@ -36,15 +47,21 @@
                 </label>
             </div>
             <div class="form-control">
-                <label for="object">
-                    Objet: 
-                    <input type="text" name="object" id="object" require>
+                <label for="mail">
+                    Mail 
+                    <input type="email" name="mail" id="mail" require>
                 </label>
             </div>
             <div class="form-control">
-                <label for="msg">
-                    Votre Message: 
-                    <textarea name="msg" id="msg" cols="30" rows="5" require></textarea>
+                <label for="username">
+                    Username 
+                    <input type="text" name="username" id="username" require>
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="pswd">
+                    Mot de Passe
+                    <input type="password" name="pswd" id="pswd" require>
                 </label>
             </div>
                 <button type="submit" name="valider">Envoyer</button>
@@ -58,13 +75,14 @@
                 $recupPrenom = $_POST["pname"];
                 $recupAdd = $_POST["adress"];
                 $recupTel = $_POST["tel"];
-                $recupObj = $_POST["object"];
-                $recupMsg = $_POST["msg"];
+                $recupMail = $_POST["mail"];
+                $recupUser = $_POST["username"];
+                $recupPswd = $_POST["pswd"];
     
-                $insertCont = "insert into Contactez_nous(nom,prenom,adresse,telephone,objet,message) values('$recupNom','$recupPrenom','$recupAdd','$recupTel','$recupObj','$recupMsg')";
+                $insertCont = "insert into Client(nom,prenom,adresse,telephone,email,username,password) values('$recupNom','$recupPrenom','$recupAdd','$recupTel','$recupMail','$recupUser','$recupPswd')";
 
                 $bdd->exec($insertCont); 
-                header("location:affichage_contactez.php");
+                header("location:affichage_client.php");
 
             }
         ?>

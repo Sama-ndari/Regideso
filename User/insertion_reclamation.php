@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reclamation Regideso</title>
     <?php include "Connexion.php" ?>
-    <?php include "Header.php" ?>
+    <?php include "Header_admin.php" ?>
 </head> 
 <body>
     <br><br>
@@ -14,8 +14,18 @@
         <form action="" method="post">
             <div class="form-control">
                 <label for="facture">
-                    Numero de Facture 
-                    <input type="number" name="facture" id="facture">
+                    Facture
+                    <select name="facture" id="facture">
+                        <?php  
+                            $affichageFact = $bdd->query("Select * from Facture as f join Compteur as cp on f.compteur = cp.id_compt");
+                            while($dataFact = $affichageFact->fetch()){
+
+                        ?>
+                            <option value=" <?php echo $dataFact["id_fact"]; ?> ">
+                                <?php echo $dataFact["num_compteur"]; ?>
+                            </option>
+                        <?php } ?>
+                    </select>
                 </label>
             </div>
 
@@ -38,7 +48,7 @@
                 $insertRecl = "insert into Reclamation(num_fact,description) values('$recupFact','$recupDescr')";
 
                 $bdd->exec($insertRecl); 
-                header("location:affichage_reclamation.php");
+                header("location:afichage_reclamation.php");
 
             }
         ?>

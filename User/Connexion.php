@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php 
-        $bdd = new PDO('mysql:host=localhost;dbname=regideso_db;charset=utf8', 'root', '');
+        $bdd = new PDO('mysql:host=localhost;dbname=Regideso_DB;charset=utf8', 'root', '');
 
     ?>
 </body>

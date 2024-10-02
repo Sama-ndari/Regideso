@@ -7,17 +7,23 @@
     <?php 
         include "Connexion.php" ;
         $affichageContact = $bdd->query("Select * from Contactez_nous");
-        // $dataRecup = $affichagePub->fetch(); //recuperation des donnees de la bd
     ?>
 
-    <?php include "Header.php" ?>
+    <?php
+        if(isset($_GET["sup"])){
+            $suppressionCont = $bdd->query("delete from Contactez_nous where id_cont=".$_GET['sup']);
+            
+        }
+    ?>
+
+    <?php include "Header_admin.php" ?>
 </head> 
 <body>
     <br><br>
     <div class="container">
     
         <h1>Contactez_nous</h1>
-        <table  border="1" cellpadding="1" cellspacing="7" align="center" bgcolor = "white">
+        <table>
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
@@ -25,6 +31,7 @@
                 <th>Telephone</th>
                 <th>Objet</th>
                 <th>Message</th>
+                <th colspan="2">Actions</th>
             </tr>
             <?php 
                 while ( $dataRecup = $affichageContact->fetch()) {         
@@ -36,6 +43,8 @@
                     <td ><?php echo $dataRecup["telephone"]; ?></td>
                     <td><?php echo $dataRecup["objet"]; ?></td>
                     <td><?php echo $dataRecup["message"]; ?></td>
+                    <td><a href="affichage_contactez.php?sup=<?php echo $dataRecup["id_cont"]; ?>">Supprimer</a></td>
+                    <td><a href="#">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

@@ -7,6 +7,9 @@
     <?php include "Header.php" ?>
 </head>
 <body> 
-    <h1>Accueil</h1>
+    <br><br> 
+    <div class="container">
+        <h1>Accueil</h1>
+    </div>
 </body>
 </html>

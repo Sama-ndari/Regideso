@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creation des publications</title>
     <?php include "Connexion.php" ?>
-    <?php include "Header.php" ?>
+    <?php include "Header_admin.php" ?>
 </head>
 <body>
     <br><br>

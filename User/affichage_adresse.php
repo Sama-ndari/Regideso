@@ -7,10 +7,16 @@
     <?php 
         include "Connexion.php" ;
         $affichageAdd = $bdd->query("Select * from Adresse");
-        // $dataRecup = $affichagePub->fetch(); //recuperation des donnees de la bd
     ?>
 
-    <?php include "Header.php" ?>
+    <?php
+        if(isset($_GET["sup"])){
+            $suppressionAdr = $bdd->query("delete from Adresse where id_adr=".$_GET['sup']);
+            
+        }
+    ?>
+
+    <?php include "Header_admin.php" ?>
 </head> 
 <body>
     <br><br>
@@ -23,6 +29,7 @@
                 <th>Province</th>
                 <th>Commune</th>
                 <th>Quartier</th>
+                <th colspan="2">Actions</th>
             </tr>
             <?php 
                 while ( $dataRecup = $affichageAdd->fetch()) {         
@@ -32,6 +39,8 @@
                     <td><?php echo $dataRecup["province"]; ?></td>
                     <td><?php echo $dataRecup["commune"]; ?></td>
                     <td><?php echo $dataRecup["quartier"]; ?></td>
+                    <td><a href="affichage_adresse.php?sup=<?php echo $dataRecup["id_adr"]; ?>">Supprimer</a></td>
+                    <td><a href="#">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

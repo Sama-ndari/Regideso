@@ -7,20 +7,27 @@
     <?php 
         include "Connexion.php" ;
         $affichageAdmin = $bdd->query("Select * from Administrateur");
-        // $dataRecup = $affichagePub->fetch(); //recuperation des donnees de la bd
     ?>
 
-    <?php include "Header.php" ?>
+    <?php
+        if(isset($_GET["sup"])){
+            $suppressionAdmin = $bdd->query("delete from Administrateur where id_admin=".$_GET['sup']);
+            
+        }
+    ?>
+
+    <?php include "Header_admin.php" ?>
 </head>
 <body> 
     <br><br>
     <div class="container">
     
         <h1>Admins</h1>
-        <table  border="1" cellpadding="1" cellspacing="7" align="center" bgcolor = "white">
+        <table>
             <tr>
                 <th>Username</th>
                 <th>Password</th>
+                <th colspan="2">Actions</th>
             </tr>
             <?php 
                 while ( $dataRecup = $affichageAdmin->fetch()) {         
@@ -28,6 +35,8 @@
                 <tr>
                     <td ><?php echo $dataRecup["username"]; ?></td>
                     <td><?php echo $dataRecup["password"]; ?></td>
+                    <td><a href="affichage_administrateur.php?sup=<?php echo $dataRecup["id_admin"]; ?>">Supprimer</a></td>
+                    <td><a href="#">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>
