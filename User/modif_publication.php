@@ -3,29 +3,33 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creation des publications</title>
-    <?php include "Connexion.php" ?>
+    <title>Modification des publications</title>
+    <?php 
+        include "Connexion.php" ;
+        $affichagePub = $bdd->query("Select * from Publication where id_pub=".$_GET['mod']);
+        $dataRecup = $affichagePub->fetch();   
+    ?>
     <?php include "Header1.php" ?>
 </head>
 <body>
     <br><br>
     <section id="comment-form">
-        <h1> Publier un message </h1>
+        <h1> Modifier un message </h1>
         <form action="" method="POST">
             <div class="form-control">
                 <label for="Objectif">
                     Objectif
-                    <input type="text" name="Objectif" id="name" require autofocus>
+                    <input type="text" value="<?php echo $dataRecup["objectif"]; ?>" name="Objectif" id="name" require autofocus>
                 </label>
             </div>
             <br><br>
             <div class="form-control">
                 <label for="msg">
                     Publication
-                    <textarea name="msg" id="pswd" cols="30" rows="10"></textarea>
+                    <textarea name="msg" id="pswd" cols="30" rows="10"><?php echo $dataRecup["publicite"]; ?></textarea>
                 </label>
             </div>
-            <button type="submit" name="valider">Envoyer</button>
+            <button type="submit" name="valider">Modifier</button>
 
         </form>
         <?php
@@ -34,9 +38,9 @@
                 $recupObjectif = $_POST["Objectif"];
                 $recupmsg = $_POST["msg"];
     
-                $insertPub = "insert into Publication (objectif,publicite) values('$recupObjectif','$recupmsg')";
+                $modifPub = "update Publication set objectif='$recupObjectif',publicite='$recupmsg' where id_pub=".$_GET['mod'];
 
-                $bdd->exec($insertPub); 
+                $bdd->exec($modifPub); 
                 header("location: affichage_publication.php");
 
             }

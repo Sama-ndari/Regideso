@@ -3,44 +3,48 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creation des adresses</title>
-    <?php include "Connexion.php" ?>
+    <title>Modification des adresses</title>
+    <?php 
+        include "Connexion.php";
+        $modifAdd = $bdd->query("Select * from Adresse where id_adr=".$_GET['mod']);
+        $dataRecup = $modifAdd->fetch(); 
+    ?>
     <?php include "Header1.php" ?>
 </head>
 <body>
     <br><br>
     <section id="comment-form">
-        <h1>Inserez Adresse </h1>
+        <h1>Modifiez Adresse </h1>
         <form action="" method="POST">
             <div class="form-control">
                 <label for="pays">
                     Pays
-                    <input type="text" name="pays" id="pays" require autofocus>
+                    <input type="text" value="<?php echo $dataRecup["pays"]; ?>" name="pays" id="pays" require autofocus>
                 </label>
             </div>
             <br><br>
             <div class="form-control">
                 <label for="province">
                     Province
-                    <input type="text" name="province" id="province" require>
+                    <input type="text" value="<?php echo $dataRecup["province"]; ?>" name="province" id="province" require>
                 </label>
             </div>
             <br><br>
             <div class="form-control">
                 <label for="commune">
                     Commune
-                    <input type="text" name="commune" id="commune" require>
+                    <input type="text" value="<?php echo $dataRecup["commune"]; ?>" name="commune" id="commune" require>
                 </label>
             </div>
             <br><br>
             <div class="form-control">
                 <label for="quartier">
                     Quartier
-                    <input type="text" name="quartier" id="quartier" require>
+                    <input type="text" value="<?php echo $dataRecup["quartier"]; ?>" name="quartier" id="quartier" require>
                 </label>
             </div>
             <br><br>
-            <button type="submit" name="valider">Envoyer</button>
+            <button type="submit" name="valider">Modifier</button>
 
         </form>
         <?php
@@ -51,9 +55,9 @@
                 $recupComm = $_POST["commune"];
                 $recupQuartier = $_POST["quartier"];
     
-                $insertPub = "insert into Adresse (pays,province,commune,quartier) values('$recupPays','$recupProv','$recupComm','$recupQuartier')";
+                $modifPub = "update Adresse set pays='$recupPays',province='$recupProv',commune='$recupComm',quartier='$recupQuartier' where id_adr=".$_GET['mod'];
 
-                $bdd->exec($insertPub); 
+                $bdd->exec($modifPub); 
                 header("location: affichage_adresse.php");
 
             }

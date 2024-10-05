@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reclamation Regideso</title>
-    <?php include "Connexion.php" ?>
+    <?php 
+        include "Connexion.php";
+        $modifRecl = $bdd->query("Select * from Reclamation as recl join (Facture as f join (Compteur as cp join Client as cl on cp.client = cl.id_client) on f.compteur = cp.id_compt) on recl.num_fact = f.id_fact where id_recl=".$_GET['mod']);
+        $dataRecup = $modifRecl->fetch();
+        $hey = "selected";   
+
+    ?>
     <?php include "Header1.php" ?>
 </head> 
 <body>
@@ -17,12 +23,12 @@
                     Facture
                     <select name="facture" id="facture">
                         <?php  
-                            $affichageFact = $bdd->query("Select * from Facture as f join Compteur as cp on f.compteur = cp.id_compt");
+                            $affichageFact = $bdd->query("Select * from Reclamation");
                             while($dataFact = $affichageFact->fetch()){
 
                         ?>
-                            <option value=" <?php echo $dataFact["id_fact"]; ?> ">
-                                <?php echo $dataFact["id_fact"]; ?>
+                            <option value=" <?php echo $dataFact["num_fact"]; ?> " <?php echo($dataFact["id_recl"] == $_GET['mod']) ? $hey : ''; ?>>
+                                <?php echo $dataFact["num_fact"]; ?>
                             </option>
                         <?php } ?>
                     </select>
@@ -32,7 +38,7 @@
             <div class="form-control">
                 <label for="descr">
                     Description
-                    <textarea name="descr" id="descr" cols="30" rows="5" require></textarea>
+                    <textarea name="descr" id="descr" cols="30" rows="5" require><?php echo $dataRecup["description"]; ?></textarea>
                 </label><br><br>
             </div>
 
@@ -41,7 +47,7 @@
             <div class="form-control">
                 <label for="image">
                     Image
-                    <input type="file" name="image" id="image" required>
+                    <input type="file" value="<?php echo $dataRecup["image_path"]; ?>" name="image" id="image" required>
                 </label>
             </div>
 
@@ -63,17 +69,10 @@
                         echo "Type de fichier inacceptable utiliser (jpeg ou png ou gif";
                     }
                     if ($deplacer) {
-                        $trouverecla = $bdd->prepare("Select * from Reclamation where num_fact= :recla");
-                        $trouverecla->bindParam(':recla', $recupFact, PDO::PARAM_STR);
-                        $trouverecla->execute();
-                        if($trouverecla->rowCount() > 0){
-                            echo "Vous avez deja reclamme pour ce facture";
-                        }
-                        else{
-                            $insertRecl = "insert into Reclamation(num_fact,description,image_path) values('$recupFact','$recupDescr','$image')";
-                            $bdd->exec($insertRecl); 
-                            header("location: afichage_reclamation.php");
-                        }
+                        $modifRecl = "update Reclamation set num_fact='$recupFact',description='$recupDescr',image_path='$image' where id_recl=".$_GET['mod'];
+                        $bdd->exec($modifRecl); 
+                        header("location: afichage_reclamation.php");
+                        
                     }
                 }
             ?>

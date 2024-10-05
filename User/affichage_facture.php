@@ -17,7 +17,7 @@
         }
     ?>
 
-    <?php include "Header_admin.php" ?>
+    <?php include "Header1.php" ?>
 </head>
 <body>
     <br><br> 
@@ -45,7 +45,7 @@
                     <td><?php echo $dataRecup["etat"]; ?></td>
                     <td><?php echo $dataRecup["date_pay"]; ?></td>
                     <td><a href="affichage_facture.php?sup=<?php echo $dataRecup["id_fact"]; ?>">Supprimer</a></td>
-                    <td><a href="#">Modifier</a></td>
+                    <td><a href="modif_facture.php?mod=<?php echo $dataRecup["id_fact"]; ?>">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

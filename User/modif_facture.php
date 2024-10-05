@@ -3,14 +3,19 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creation des Factures</title>
-    <?php include "Connexion.php" ?>
+    <title>Modification des Factures</title>
+    <?php 
+        include "Connexion.php";
+        $modifFact = $bdd->query("Select * from Facture as f join (Compteur as cp join Client as cl on cp.client = cl.id_client) on f.compteur = cp.id_compt where id_fact=".$_GET['mod']);
+        $dataRecup = $modifFact->fetch();   
+
+    ?>
     <?php include "Header1.php" ?>
 </head>
 <body>
     <br><br>
     <section id="comment-form">
-        <h1>Inserez Facture </h1>
+        <h1>Modifiez Facture </h1>
         <form action="" method="POST">
             <div class="form-control">
                 <label for="compt">
@@ -32,7 +37,7 @@
             <div class="form-control">
                 <label for="montant">
                     Montant
-                    <input type="number" name="montant" id="montant" require pattern="\[0-9]*">
+                    <input type="number" value="<?php echo $dataRecup["montant"]; ?>" name="montant" id="montant" require pattern="\[0-9]*">
                 </label>
             </div>
             <br><br>
@@ -45,17 +50,10 @@
                 $recupCompt = $_POST["compt"];
                 $recupMontant = $_POST["montant"];
                 
-                $trouvefact = $bdd->prepare("Select * from Facture where compteur= :fact");
-                $trouvefact->bindParam(':fact', $recupCompt, PDO::PARAM_STR);
-                $trouvefact->execute();
-                if($trouvefact->rowCount() > 0){
-                    echo "Facture existe deja";
-                }
-                else{
-                    $insertfact = "insert into Facture(compteur,montant) values('$recupCompt','$recupMontant')";
-                    $bdd->exec($insertfact); 
-                    header("location: affichage_facture.php");
-                }
+                $modiffact = "update Facture set compteur='$recupCompt',montant='$recupMontant' where id_fact=".$_GET['mod'];
+                $bdd->exec($modiffact); 
+                header("location: affichage_facture.php");
+                
 
             }
         ?>

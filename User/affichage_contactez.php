@@ -6,7 +6,7 @@
     <title>Affichage Contactez_nous</title>
     <?php 
         include "Connexion.php" ;
-        $affichageContact = $bdd->query("Select * from Contactez_nous");
+        $affichageContact = $bdd->query("Select * from Contactez_nous order by id_cont DESC");
     ?>
 
     <?php
@@ -16,7 +16,7 @@
         }
     ?>
 
-    <?php include "Header_admin.php" ?>
+    <?php include "Header1.php" ?>
 </head> 
 <body>
     <br><br>
@@ -44,7 +44,7 @@
                     <td><?php echo $dataRecup["objet"]; ?></td>
                     <td><?php echo $dataRecup["message"]; ?></td>
                     <td><a href="affichage_contactez.php?sup=<?php echo $dataRecup["id_cont"]; ?>">Supprimer</a></td>
-                    <td><a href="#">Modifier</a></td>
+                    <td><a href="modif_Contactez_nous.php?mod=<?php echo $dataRecup["id_cont"]; ?>">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

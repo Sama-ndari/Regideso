@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reclamation Regideso</title>
     <?php include "Connexion.php" ?>
-    <?php include "Header_admin.php" ?>
+    <?php include "Header1.php" ?>
 </head>
 <body>
     <br><br>
@@ -15,14 +15,14 @@
             <div class="form-control">
                 <label for="username">
                     Username
-                    <input type="text" name="username" id="username">
+                    <input type="text" name="username" id="username" required pattern="^[a-zA-Z0-9_]{3,20}$">
                 </label>
             </div>
 
             <div class="form-control">
                 <label for="pswd">
                     Mot de passe
-                    <input type="password" name="pswd" id="pswd">
+                    <input type="password" name="pswd" id="pswd" required>
                 </label><br><br>
             </div>
             <button type="submit" name="valider">Envoyer</button>
@@ -37,7 +37,7 @@
                 $insertAdmin = "insert into Administrateur(username,password) values('$recupUsername','$recupPswd')";
 
                 $bdd->exec($insertAdmin); 
-                header("location:affichage_administrateur.php");
+                header("location: affichage_administrateur.php");
 
             }
         ?>

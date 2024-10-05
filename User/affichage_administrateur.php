@@ -16,7 +16,7 @@
         }
     ?>
 
-    <?php include "Header_admin.php" ?>
+    <?php include "Header1.php" ?>
 </head>
 <body> 
     <br><br>
@@ -34,9 +34,9 @@
             ?>
                 <tr>
                     <td ><?php echo $dataRecup["username"]; ?></td>
-                    <td><?php echo $dataRecup["password"]; ?></td>
+                    <td><?php echo md5($dataRecup["password"]); ?></td>
                     <td><a href="affichage_administrateur.php?sup=<?php echo $dataRecup["id_admin"]; ?>">Supprimer</a></td>
-                    <td><a href="#">Modifier</a></td>
+                    <td><a href="modif_administrateur.php?mod=<?php echo $dataRecup["id_admin"]; ?>">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

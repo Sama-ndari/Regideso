@@ -18,10 +18,17 @@
         }
     ?>
 
-    <?php include "Header_admin.php" ?>
+    <style>
+        .image-preview {
+            max-width: 80px;
+            max-height: 80px;
+            object-fit: cover;
+        }
+    </style>
+
+    <?php include "Header1.php" ?>
 </head>
 <body>
-    <br><br>
     <div class="container">
     
         <h1>Nos Reclamations</h1>
@@ -34,6 +41,7 @@
                 <th>Description</th>
                 <th>Date de Reclamation</th>
                 <th>Etat</th>
+                <th>Image</th>
                 <th colspan="2">Actions</th>
             </tr>
             <?php 
@@ -47,8 +55,15 @@
                     <td><?php echo $dataRecup["description"]; ?></td>
                     <td><?php echo $dataRecup["date_recl"]; ?></td>
                     <td><?php echo $dataRecup["etat"]; ?></td>
+                    <td>
+                        <?php if (!empty($dataRecup["image_path"])): ?>
+                            <img src="uploads/<?php echo htmlspecialchars($dataRecup["image_path"]); ?>" alt="Reclamation Image" class="image-preview">
+                        <?php else: ?>
+                            Pas d'image
+                        <?php endif; ?>
+                    </td>
                     <td><a href="afichage_reclamation.php?sup=<?php echo $dataRecup["id_recl"]; ?>">Supprimer</a></td>
-                    <td><a href="#">Modifier</a></td>
+                    <td><a href="modif_reclamation.php?mod=<?php echo $dataRecup["id_recl"]; ?>">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

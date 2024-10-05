@@ -16,7 +16,7 @@
         }
     ?>
 
-    <?php include "Header_admin.php" ?>
+    <?php include "Header1.php" ?>
 </head>
 <body> 
     <br><br>
@@ -44,7 +44,7 @@
                     <td><?php echo $dataRecup["email"]; ?></td>
                     <td><?php echo $dataRecup["username"]; ?></td>
                     <td><a href="affichage_client.php?sup=<?php echo $dataRecup["id_client"]; ?>">Supprimer</a></td>
-                    <td><a href="#">Modifier</a></td>
+                    <td><a href="modif_client.php?mod=<?php echo $dataRecup["id_client"]; ?>">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

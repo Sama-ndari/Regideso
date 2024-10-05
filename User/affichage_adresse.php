@@ -6,7 +6,7 @@
     <title>Publications</title>
     <?php 
         include "Connexion.php" ;
-        $affichageAdd = $bdd->query("Select * from Adresse");
+        $affichageAdd = $bdd->query("Select * from Adresse order by id_adr DESC");
     ?>
 
     <?php
@@ -16,7 +16,7 @@
         }
     ?>
 
-    <?php include "Header_admin.php" ?>
+    <?php include "Header1.php" ?>
 </head> 
 <body>
     <br><br>
@@ -40,7 +40,7 @@
                     <td><?php echo $dataRecup["commune"]; ?></td>
                     <td><?php echo $dataRecup["quartier"]; ?></td>
                     <td><a href="affichage_adresse.php?sup=<?php echo $dataRecup["id_adr"]; ?>">Supprimer</a></td>
-                    <td><a href="#">Modifier</a></td>
+                    <td><a href="modif_adresse.php?mod=<?php echo $dataRecup["id_adr"]; ?>">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>

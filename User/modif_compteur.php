@@ -3,14 +3,18 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creation des compteurs</title>
-    <?php include "Connexion.php" ?>
+    <title>Modification des compteurs</title>
+    <?php 
+        include "Connexion.php";
+        $modifCompt = $bdd->query("Select * from Compteur as cp join Client as cl on cp.client = cl.id_client where id_compt=".$_GET['mod']);
+        $dataRecup = $modifCompt->fetch();   
+    ?>
     <?php include "Header1.php" ?>
 </head>
 <body>
     <br><br>
     <section id="comment-form">
-        <h1>Inserez Compteur </h1>
+        <h1>Modifiez Compteur </h1>
         <form action="" method="POST">
             <div class="form-control">
                 <label for="client">
@@ -32,14 +36,14 @@
             <div class="form-control">
                 <label for="compt">
                     Numero Compteur
-                    <input type="number" name="compt" id="compt" require pattern="\[0-9]*">
+                    <input type="number" value="<?php echo $dataRecup["num_compteur"]; ?>" name="compt" id="compt" require pattern="\[0-9]*">
                 </label>
             </div>
             <br><br>
             <div class="form-control">
                 <label for="type">
                     Type
-                    <input type="text" name="type" id="type" require>
+                    <input type="text" value="<?php echo $dataRecup["type"]; ?>" name="type" id="type" require>
                 </label>
             </div>
             <br><br>
@@ -53,17 +57,9 @@
                 $recupNum = $_POST["compt"];
                 $recupType = $_POST["type"];
 
-                $trouvecompt = $bdd->prepare("Select * from Compteur where num_compteur= :compteur");
-                $trouvecompt->bindParam(':compteur', $recupNum, PDO::PARAM_STR);
-                $trouvecompt->execute();
-                if($trouvecompt->rowCount() > 0){
-                    echo "Compteur existe deja";
-                }
-                else{
-                    $insertcompt = "insert into Compteur(client,num_compteur,type) values('$recupClient','$recupNum','$recupType')";
-                    $bdd->exec($insertcompt); 
-                    header("location: affichage_compteur.php");
-                }
+                $modifcompt = "update Compteur set client='$recupClient',num_compteur='$recupNum',type='$recupType' where id_compt=".$_GET['mod'];
+                $bdd->exec($modifcompt); 
+                header("location: affichage_compteur.php");
 
             }
         ?>

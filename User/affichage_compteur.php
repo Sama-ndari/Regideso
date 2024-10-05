@@ -16,7 +16,7 @@
         }
     ?>
 
-    <?php include "Header_admin.php" ?>
+    <?php include "Header1.php" ?>
 </head>
 <body>
     <br><br>
@@ -40,7 +40,7 @@
                     <td><?php echo $dataRecup["num_compteur"]; ?></td>
                     <td><?php echo $dataRecup["type"]; ?></td>
                     <td><a href="affichage_compteur.php?sup=<?php echo $dataRecup["id_compt"]; ?>">Supprimer</a></td>
-                    <td><a href="#">Modifier</a></td>
+                    <td><a href="modif_compteur.php?mod=<?php echo $dataRecup["id_compt"]; ?>">Modifier</a></td>
                 </tr>
             <?php } ?>
         </table>
